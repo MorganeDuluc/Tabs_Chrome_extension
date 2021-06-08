@@ -1,0 +1,16 @@
+{
+  "name": "Extension test tabs",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "browser_action": {
+    "default-icon": {
+        "16": "images/duck-icon.jpg",
+        "24": "images/duck-icon.jpg",
+        "32": "images/duck-icon.jpg"
+      }
+  }
+
+}
+
