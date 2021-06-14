@@ -15,8 +15,8 @@
 
   //introduction d'une interface utilisateur
   "action": {
-    "default_popup": "popup.html",
-    "options_page": "options.html"
+    "default_popup": "popup.html"
+    // "options_page": "options.html"
   },
 
   //fav-icon

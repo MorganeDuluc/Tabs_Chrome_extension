@@ -1,24 +1,36 @@
-// Initialize button with user's preferred color
-let changeColor = document.getElementById("changeColor");
+//obtenir tous les onglets
+// function logTabs(tabs) {
+//   for (let tab of tabs) {
+//     // tab.url requires the `tabs` permission
+//     console.log("coucou");
+//     console.log(tab.url);
+//   }
+// }
 
-chrome.storage.sync.get("color", ({ color }) => {
-  changeColor.style.backgroundColor = color;
-});
+// function onError(error) {
+//   console.log(`Error: ${error}`);
+// }
 
-// When the button is clicked, inject setPageBackgroundColor into current page
-changeColor.addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+// var querying = browser.tabs.query({});
+// querying.then(logTabs, onError);
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: setPageBackgroundColor,
-  });
-});
 
-// The body of this function will be executed as a content script inside the
-// current page
-function setPageBackgroundColor() {
-  chrome.storage.sync.get("color", ({ color }) => {
-    document.body.style.backgroundColor = color;
-  });
-}
+// //obtenir l'onglet actif dans la fenêtre actuelle
+// function logTabs(tabs) {
+//   for (let tab of tabs) {
+//     // tab.url requires the `tabs` permission
+//     console.log(tab.url);
+//   }
+// }
+
+// function onError(error) {
+//   console.log(`Error: ${error}`);
+// }
+
+// var querying = browser.tabs.query({currentWindow: true, active: true});
+// querying.then(logTabs, onError);
+
+chrome.tabs.getCurrent(function(tab){
+        console.log(tab.url);
+    }
+);
